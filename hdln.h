@@ -1,6 +1,9 @@
+
+#ifdef HDLN // {
+
 # include<stdint.h> // int64_t
 # include<string.h> // strlen, size_t
-
+# define HDLN
                   
 
 #ifdef __cplusplus
@@ -21,4 +24,7 @@
    # include<io.h>  // _write
    # define WRITE _write
 
+#endif
+
+// }
 #endif
