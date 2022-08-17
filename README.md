@@ -20,3 +20,4 @@ int main()
 }
 
 ```
+<img src='https://github.com/teumal/hdln.c/blob/main/output.JPG?raw=true'>
