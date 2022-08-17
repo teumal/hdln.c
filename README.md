@@ -1,11 +1,10 @@
 # hdln.c
 write a headline string to stdout stream
 
-문자열을 제목으로 바꾸어 출력합니다. 제목의 크기는 
+문자열을 제목으로 바꾸어 출력합니다. 각 문자는 7 x 8 크기의 아스키 문자들로 
 
-_______________________________________
-#size_t puthdln(const char* const str);
-_______________________________________
+
+<span style='"text-decoration:underline"'> <span style='color:blue'>size_t<span> puthdln( <span style='color:blue'>const char* const </span> str); </span>
 
 
 ``` c
