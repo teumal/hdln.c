@@ -1,8 +1,11 @@
 # hdln.c
-write headline string to stdout stream
+write a headline string to stdout stream
 
-함수로 전달한 문자열을  바꾸어 stdout stream 으로 출력합니다. 
+문자열을 제목으로 바꾸어 출력합니다. 제목의 크기는 
 
+_______________________________________
+#size_t puthdln(const char* const str);
+_______________________________________
 
 
 ``` c
