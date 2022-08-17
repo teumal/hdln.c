@@ -1,4 +1,6 @@
 
+# include"hdln.h"
+
 #define __PRINTHDLN__OUT_FLUSH if( (char*)in>=(out+256) ) {  \
    	                             ret += WRITE(1, out, 256);  \
    	                             in = (int64_t*) out;        \
