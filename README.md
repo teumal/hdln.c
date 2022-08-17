@@ -14,7 +14,7 @@ todo list
 ### puthdln
 ______________________________________
 ``` c
- puthdln(const char* const str);
+ size_t puthdln(const char* const str);
 ```
 인자로 받은 문자열을 제목으로 stdout stream 으로 출력합니다. 출력한 문자열의 끝에는 자동으로 '\n' 가 따라옵니다. 다시 말해서, "1" 을 출력하게 되면 실제로 출력하는 것은 "1\n" 가 된다는 말입니다. 내부적으로 버퍼에 출력할 문자열들을 담았다가, 버퍼의 상한을 넘으면 flush 하는 로직으로 되어 있기에 해당 함수는 'atomic' 함을 항상 보장하지 않습니다.
 
