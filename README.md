@@ -6,7 +6,6 @@ write a headline string to stdout stream
 
 todo list
 - [ ] size_t printhdln(const char* restrict fmt, ...); 함수 추가. 사용법은 printf 와 똑같을 예정.
-- [ ] puthdln 내의 data 배열을, 함수 밖으로 빼내기
 
 <br><br><br>
 
