@@ -4,7 +4,11 @@ write a headline string to stdout stream
 문자열을 제목으로 바꾸어 출력합니다. 각 문자는 7 x 8 크기의 아스키 문자들로 
 
 
-<span style='"text-decoration:underline"'> <span style='color:blue'>size_t<span> puthdln( <span style='color:blue'>const char* const </span> str); </span>
+
+## puthdln
+``` c
+int puthdln(const char* const str);
+```
 
 
 ``` c
