@@ -1,9 +1,12 @@
 # hdln.c
 write headline string to stdout stream
 
+함수로 전달한 문자열을  바꾸어 stdout stream 으로 출력합니다. 
+
+
 
 ``` c
-// example 1.
+// example 1. using puthdln function.
 # include"hdln.h"
 # include<stdio.h>
 
