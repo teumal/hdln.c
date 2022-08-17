@@ -6,6 +6,7 @@ write a headline string to stdout stream
 
 todo list
 - [ ] size_t printhdln(const char* restrict fmt, ...); 함수 추가. 사용법은 printf 와 똑같을 예정.
+- [ ] 아스키 아트 수정.
 
 <br><br><br>
 
