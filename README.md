@@ -133,7 +133,9 @@ int main()
     size_t written  = printhdln("%.11s", "HELLO WORLD!!!");
     
     printhdln("bytesWritten: %zd", written);
-    printhdln("\t.%10s.\n\t.%-10s.\n\t.%*s.", s, s, 10, s);
+    printhdln("\t.%10s.\n"
+              "\t.%-10s.\n"
+              "\t.%*s.",   s, s, 10, s);
     printhdln("Floating point : %.10f\n"
               "Scientific     : %.10E\n", PI, PI);
 }
