@@ -3,6 +3,8 @@ write a headline string to stdout stream
 
 문자열을 제목으로 바꾸어 출력합니다. 각 문자는 7 x 8 크기의 Ascii 문자들로 이루어져 있습니다. c++11 과 c11 이상, linux, unix, windows 환경에서 사용할 수 있습니다. 
 이전 Tetris 프로젝트에서 보이다 시피, 콘솔 프로그램에서 제목이나 강조하고 싶은 문구를 출력하는 것이 목적입니다. 지원하는 문자는 일반 Ascii code chracter 들 뿐입니다.
+
+아스키 아트를 변경하고 싶다면, puthdln 함수 내에 있는 data 배열을 수정하면 됩니다. 단, 각 문자별 아스키 아트의 크기는 항상 7 x 8 (row x col) 이어야 합니다( col 에 NUL 문자는 계산되지 않습니다.). data의 모든 데이터들은 모두 연속적이며, data의 한 행의 크기는 sizeof(int64_t) * 128 입니다. 
 <br><br><br>
 
 ## puthdln
