@@ -116,7 +116,7 @@ fmt - 어떤식으로 해석할지의 내용을 포함한, null-terminated multi
 
      length    : hh, h, (none), l, ll, j, z, t, L
 
-     specifier : %, c, s, d, i, o, x, X, u, f, F, e, E, a, A, g, G, n, p <br>
+     specifier : %, c, s, d, i, o, x, X, u, f, F, e, E, a, A, g, G, n, p
 &nbsp;&nbsp;&nbsp;... - fmt 문자열에서 명시한 서식문자에서 필요로하는 인자들. 인자의 갯수가 fmt 에 명시한 것보다 적거나, 각 서식문자가 기대한 타입의 인자가 아닌 경우 그 결과는 UB 입니다. 
 
 ### Return values
