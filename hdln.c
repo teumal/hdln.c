@@ -3,9 +3,9 @@
 # include"hdln.h"
 
 #define __PUTHDLN__OUT_FLUSH if( (char*)in>=(out+256) ) {    \
-   	                             ret += WRITE(1, out, 256);  \
-   	                             in = (int64_t*) out;        \
-   	                         } 
+   	                         ret += WRITE(1, out, 256);  \
+   	                         in = (int64_t*) out;        \
+   	                     } 
 
 
 // write the headline to the output stream stdout.
@@ -23,13 +23,14 @@ size_t puthdln(const char* const str) {
 	};
 	
 	ALIGN_AS(8) char out[256];
-	int64_t* in = (int64_t*) out;
 	
-	size_t ret   = 0, 
-	       begin = 0; 
-    const size_t strsz = strlen(str);
-    int handle_lf = 0;
-
+	int64_t*     in    = (int64_t*) out;
+	const size_t strsz = strlen(str);
+	
+	int    handle_lf = 0;
+	size_t ret       = 0, 
+	       begin     = 0; 
+ 
 HANDLE_LF:
 
    	for(int i=0; i<7; ++i) {
@@ -95,4 +96,10 @@ size_t printhdln(const char* RESTRICT fmt, ...) {
     va_end(argp);
     return puthdln(buf);
 }
+
+
+
+
+
+
 
