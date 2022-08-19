@@ -17,7 +17,7 @@ write a headline string to stdout stream
 인자로 받은 문자열을 제목으로 stdout stream 으로 출력합니다. 출력한 문자열의 끝에는 자동으로 '\n' 가 따라옵니다. 다시 말해서, "1" 을 출력하게 되면 실제로 출력하는 것은 "1\n" 가 된다는 말입니다. 내부적으로 버퍼에 출력할 문자열들을 담았다가, 버퍼의 상한을 넘으면 flush 하는 로직으로 되어 있기에 해당 함수는 'atomic' 함을 항상 보장하지 않습니다.
 
 ### Parameters
-str - nul-terminated multibyte string 을 가리키는 포인터.
+str - null-terminated multibyte string 을 가리키는 포인터.
 
 ### Return values
 실제로 써진 bytes 의 갯수를 돌려줍니다. puthdln("1"); 을 호출하면, 56 x 2 = 112 를 돌려줍니다. 제목을 구성하는 문자 하나 당, 크기는 8 x 7 = 56 bytes 이지만. line 을 출력하는 것이기에 반환값에는 8 x 7 '\n' 의 크기도 포함되어 있습니다.
