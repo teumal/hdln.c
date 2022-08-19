@@ -125,7 +125,6 @@ fmt - 어떤식으로 해석할지의 내용을 포함한, null-terminated multi
 ### Example
 ``` c
 # include"hdln.h"
-# include<time.h>
 
 int main()
 {  
