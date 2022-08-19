@@ -14,7 +14,7 @@
 
   #else
     # define ALIGN_AS(x) _Alignas(x)
-    # define RESTRICT RESTRICT
+    # define RESTRICT restrict
   
   #endif
 
