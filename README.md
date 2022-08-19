@@ -125,12 +125,12 @@ fmt - 어떤식으로 해석할지의 내용을 포함한, null-terminated multi
 ### Example
 ``` c
 # include"hdln.h"
+# define PI 3.14159265358979323846264338327950288419716939937510582097f
 
 int main()
 {  
-    float PI        = 3.14159265358979323846264338327950288419716939937510582097f;
-    const char*  s  = "Hello";
     size_t written  = printhdln("%.11s", "HELLO WORLD!!!");
+    const char*  s  = "Hello";
     
     printhdln("bytesWritten: %zd", written);
     printhdln("\t.%10s.\n"
