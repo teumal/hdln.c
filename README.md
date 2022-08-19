@@ -3,16 +3,12 @@ write a headline string to stdout stream
 
 문자열을 제목으로 바꾸어 출력합니다. 각 문자는 7 x 8 크기의 Ascii 문자들로 이루어져 있습니다. c++11 과 c11 이상, linux, unix, windows 환경에서 사용할 수 있습니다. 
 이전 Tetris 프로젝트에서 보이다 시피, 콘솔 프로그램에서 제목이나 강조하고 싶은 문구를 출력하는 것이 목적입니다. 지원하는 문자는 일반 Ascii code chracter 들 뿐입니다.
-
-todo list
-- [ ] size_t printhdln(const char* restrict fmt, ...); 함수 추가. 사용법은 printf 와 똑같을 예정.
-- [ ] 아스키 아트 수정.
-
 <br><br><br>
 
-
+<u>
 ### puthdln
-______________________________________
+</u>
+
 ``` c
  size_t puthdln(const char* const str);
 ```
