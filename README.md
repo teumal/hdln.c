@@ -99,8 +99,7 @@ fmt 에 명시된대로 내용을 해석한 결과를 제목으로, stdout strea
 사용방법은 printf와 똑같으며, 그 결과는 vsnprintf 으로 만들어낸 결과와 같습니다. 그리고, 변환된 결과의 최대 크기는 2047 bytes 까지입니다. 2048 bytes 이상의 데이터들은 잘리게 되어 출력되지 않습니다. 만약 변환하여 출력할 필요가 없다면 conversion 루틴을 거치지 않도록, puthdln 을 쓰는 것을 추천합니다.
 
 ### Parameters
-fmt - 어떤식으로 해석할지의 내용을 포함한, null-terminated multibyte string 을 가리키는 포인터. <br>
-&nbsp;&nbsp;&nbsp;... - fmt 문자열에서 명시한 서식문자에서 필요로하는 인자들. printf 와 사용법은 똑같습니다. 간략하게 요약하자면 아래와 같습니다:
+fmt - 어떤식으로 해석할지의 내용을 포함한, null-terminated multibyte string 을 가리키는 포인터. printf 와 사용법은 똑같습니다. 간략하게 요약하자면 아래와 같습니다:
   - ``` text
      Conversion Specifier
  
@@ -117,9 +116,8 @@ fmt - 어떤식으로 해석할지의 내용을 포함한, null-terminated multi
 
      length    : hh, h, (none), l, ll, j, z, t, L
 
-     specifier : %, c, s, d, i, o, x, X, u, f, F, e, E, a, A, g, G, n, p 
-
-인자의 갯수가 fmt 에 명시한 것보다 적거나, 각 서식문자가 기대한 타입의 인자가 아닌 경우 그 결과는 UB 입니다. 
+     specifier : %, c, s, d, i, o, x, X, u, f, F, e, E, a, A, g, G, n, p <br>
+&nbsp;&nbsp;&nbsp;... - fmt 문자열에서 명시한 서식문자에서 필요로하는 인자들. 인자의 갯수가 fmt 에 명시한 것보다 적거나, 각 서식문자가 기대한 타입의 인자가 아닌 경우 그 결과는 UB 입니다. 
 
 ### Return values
 실제로 써진 bytes 의 갯수를 돌려줍니다. printhdln("1"); 을 호출하면, 56 x 2 = 112 를 돌려줍니다. 제목을 구성하는 문자 하나 당, 크기는 8 x 7 = 56 bytes 이지만. line 을 출력하는 것이기에 반환값에는 8 x 7 '\n' 의 크기도 포함되어 있습니다.
