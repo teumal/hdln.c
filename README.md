@@ -26,8 +26,7 @@ str - null-terminated multibyte string 을 가리키는 포인터.
 ### Example
 ``` c
 // example. using puthdln function.
-# include"hdln.h"
-# include<stdio.h>
+# include"hdln.h"  // printhdln, printf
 
 int main()
 {
@@ -125,6 +124,7 @@ fmt - 어떤식으로 해석할지의 내용을 포함한, null-terminated multi
 
 ### Example
 ``` c
+// Example 1. 
 # include"hdln.h"
 # define PI 3.14159265358979323846264338327950288419716939937510582097f
 
@@ -200,3 +200,35 @@ L___  ) /  |      _     |  O   )| _ )   |_  _|    _     _/ |_     _     /  |    
        
 
 ```
+
+<br><br><br>
+
+``` c++
+// Example 2. make a digital clock with printhdln
+# include"hdln.h"  // printhdln
+# include<thread>  // std::this_thread::sleep_for
+# include<ctime>   // tm, time_t, time, gmtime
+# include<cstdlib> // system
+
+int main()
+{
+    time_t timer;
+    tm*    cur;
+    
+    while(true) {
+      time(&timer);
+      cur = localtime(&timer);
+      
+      printhdln("%02d:%02d:%02d", 
+                cur->tm_hour, 
+                cur->tm_min,
+                cur->tm_sec );
+                
+      std::this_thread::sleep_for(std::chrono::seconds(1) );  
+      system("clear"); // execute unix command "clear"
+                       // in Windows, use system("cls") instead.
+    }
+}
+```
+
+
