@@ -230,5 +230,5 @@ int main()
     }
 }
 ```
-
+<img src='https://github.com/teumal/hdln.c/blob/main/digital_clock.gif?raw=true'>
 
