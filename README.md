@@ -206,8 +206,8 @@ L___  ) /  |      _     |  O   )| _ )   |_  _|    _     _/ |_     _     /  |    
 ``` c++
 // Example 2. make a digital clock with printhdln
 # include"hdln.h"  // printhdln
-# include<thread>  // std::this_thread::sleep_for
-# include<ctime>   // tm, time_t, time, gmtime
+# include<thread>  // std::this_thread::sleep_for, std::chrono::seconds
+# include<ctime>   // tm, time_t, time, localtime
 # include<cstdlib> // system
 
 int main()
