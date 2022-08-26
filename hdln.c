@@ -2,6 +2,10 @@
 
 # include"hdln.h"
 
+// check your platform.
+static_assert(IS_HDLN_SUPPORT_YOUR_PLATFORM, 
+              "\"hdln\" is not supported your platform");
+
 #define __PUTHDLN__OUT_FLUSH if( (char*)in>=(out+1024) ) {    \
    	                         ret += WRITE(1, out, 1024);  \
    	                         in = (int64_t*) out;        \
