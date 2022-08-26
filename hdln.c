@@ -47,7 +47,7 @@ HANDLE_LF:
    	        *in++ = ( (int64_t(*)[128]) data )[i][c];
    	        __PUTHDLN__OUT_FLUSH
    	    }
-   	    *in++ = ( (int64_t(*)[128]) data )[i]['\n'];
+   	    *in++ = 0xa20202020202020;
    	    __PUTHDLN__OUT_FLUSH
    	}
    	
