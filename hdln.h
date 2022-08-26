@@ -23,10 +23,15 @@
   #if defined(__linux__) || defined(__unix__)
      # include<unistd.h>  // write
      # define WRITE write
+     # define IS_HDLN_SUPPORT_YOUR_PLATFORM 1
  
   #elif defined(_WIN32)
      # include<io.h>  // _write
      # define WRITE _write
+     # define IS_HDLN_SUPPORT_YOUR_PLATFORM 1
+
+  #else
+     # define IS_HDLN_SUPPORT_YOUR_PLATFORM 0
 
   #endif
   
