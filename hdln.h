@@ -5,6 +5,7 @@
   # include<stdarg.h> // va_list, va_start, va_end
   # include<stdint.h> // int64_t
   # include<string.h> // strlen, size_t
+  # include<assert.h> // assert
   # define HDLN
                   
 
