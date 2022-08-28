@@ -4,7 +4,7 @@ write a headline string to stdout stream
 문자열을 제목으로 바꾸어 출력합니다. 각 문자는 7 x 8 크기의 Ascii 문자들로 이루어져 있습니다. c++11 과 c11 이상, linux, unix, windows 환경에서 사용할 수 있습니다. 
 이전 Tetris 프로젝트에서 보이다 시피, 콘솔 프로그램에서 제목이나 강조하고 싶은 문구를 출력하는 것이 목적입니다. 지원하는 문자는 일반 Ascii code chracter 들 뿐입니다.
 
-아스키 아트를 변경하고 싶다면, puthdln 함수 내에 있는 data 배열을 수정하면 됩니다. 단, 각 문자별 아스키 아트의 크기는 항상 7 x 8 (row x col) 이어야 합니다( col 에 NUL 문자를 고려할 필요는 없습니다.). data의 한 행의 크기는 sizeof(int64_t) * 128 이며, 각 문자의 데이터가 8 bytes 씩 연속적으로 배열되어 있습니다. 이는 각 행을 처리하는 동안  data caching 효율을 높여줍니다.
+아스키 아트를 변경하고 싶다면, puthdln 함수 내에 있는 data 배열을 수정하면 됩니다. 단, 각 문자별 아스키 아트의 크기는 항상 7 x 8 (row x col) 이어야 합니다( col 에 NUL 문자를 고려할 필요는 없습니다.). data의 한 행의 크기는 sizeof(int64_t) * 128 이며, 각 문자의 데이터가 8 bytes 씩 연속적으로 배열되어 있습니다. 이는 각 행을 처리하는 동안  data caching 효율을 높여줍니다. 내부적으로 64-bit integer 를 사용하고 있기 때문에 64 bit 모드에서 사용하는 것을 추천합니다.
 
 아스키 코드의 일부 특수 문자('\n', '\t' 제외)의 경우, 공백만이 출력되는데 이는 자주 쓰는 아스키 코드 문자만을 출력하고자 만든 라이브러리이기 때문입니다. hdln 은 chracter string 을 headline 으로 바꿔서 출력하는 두 개의 함수 puthdln(put headline), printhdln(print headline) 를 제공합니다:
 
@@ -15,7 +15,7 @@ write a headline string to stdout stream
 ``` c
  size_t puthdln(const char* const str);
 ```
-인자로 받은 문자열을 제목으로 stdout stream 으로 출력합니다. 출력한 문자열의 끝에는 자동으로 '\n' 가 따라옵니다. 다시 말해서, "1" 을 출력하게 되면 실제로 출력하는 것은 "1\n" 가 된다는 말입니다. 내부적으로 버퍼에 출력할 문자열들을 담았다가, 버퍼의 상한을 넘으면 flush 하는 로직으로 되어 있기에 해당 함수는 'atomic' 함을 항상 보장하지 않습니다.
+인자로 받은 문자열을 제목으로 stdout stream 으로 출력합니다. 출력한 문자열의 끝에는 자동으로 '\n' 가 따라옵니다. 다시 말해서, "1" 을 출력하게 되면 실제로 출력하는 것은 "1\n" 가 된다는 말입니다. 내부적으로 버퍼에 출력할 문자열들을 담았다가, 버퍼의 상한을 넘으면 flush 하는 로직으로 되어 있기에 해당 함수는 'atomic' 함을 항상 보장하지 않습니다. 전달한 문자열을 구성하는 문자가 0~127 사이의 ascii code character 가 아닐 경우, 결과는 undefined behavior 입니다.
 
 ### Parameters
 str - null-terminated multibyte string 을 가리키는 포인터.
@@ -94,9 +94,9 @@ __| |   / __  ) /_  )      / |    /  _]  / __|  |     |  /   )   /    )    _    
 ``` c
  size_t printhdln(const char* RESTRICT fmt, ...);
 ```
-fmt 에 명시된대로 내용을 해석한 결과를 제목으로, stdout stream 으로 출력합니다. 출력한 문자열의 끝에는 자동으로 '\n' 가 따라옵니다. 다시 말해서, "1" 을 출력하게 되면 실제로 출력하는 것은 "1\n" 가 된다는 말입니다. 내부적으로 버퍼에 출력할 문자열들을 담았다가, 버퍼의 상한을 넘으면 flush 하는 로직으로 되어 있기에 해당 함수는 'atomic' 함을 항상 보장하지 않습니다.
+fmt 에 명시된대로 내용을 해석한 결과를 제목으로, stdout stream 으로 출력합니다. 출력한 문자열의 끝에는 자동으로 '\n' 가 따라옵니다. 다시 말해서, "1" 을 출력하게 되면 실제로 출력하는 것은 "1\n" 가 된다는 말입니다. 내부적으로 버퍼에 출력할 문자열들을 담았다가, 버퍼의 상한을 넘으면 flush 하는 로직으로 되어 있기에 해당 함수는 'atomic' 함을 항상 보장하지 않습니다. 전달한 문자열을 구성하는 문자가 0~127 사이의 ascii code character 가 아닐 경우, 결과는 undefined behavior 입니다.
 
-사용방법은 printf와 똑같으며, 그 결과는 vsnprintf 으로 만들어낸 결과와 같습니다. 그리고, 변환된 결과의 최대 크기는 2047 bytes 까지입니다. 2048 bytes 이상의 데이터들은 잘리게 되어 출력되지 않습니다. 만약 변환하여 출력할 필요가 없다면 conversion 루틴을 거치지 않도록, puthdln 을 쓰는 것을 추천합니다.
+사용방법은 printf와 똑같으며, 그 결과는 vsnprintf 으로 만들어낸 결과와 같습니다. 그리고, 변환된 결과의 최대 크기는 2047 bytes 까지입니다. 2048 bytes 이상의 데이터들은 잘리게 되어 출력되지 않습니다. 만약 변환하여 출력할 필요가 없다면 conversion 루틴을 거치지 않도록, puthdln 을 쓰는 것을 추천합니다. 
 
 ### Parameters
 fmt - 어떤식으로 해석할지의 내용을 포함한, null-terminated multibyte string 을 가리키는 포인터. printf 와 사용법은 똑같습니다. 간략하게 요약하자면 아래와 같습니다:
