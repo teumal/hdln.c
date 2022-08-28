@@ -4,7 +4,7 @@ write a headline string to stdout stream
 문자열을 제목으로 바꾸어 출력합니다. 각 문자는 7 x 8 크기의 Ascii 문자들로 이루어져 있습니다. c++11 과 c11 이상, linux, unix, windows 환경에서 사용할 수 있습니다. 
 이전 Tetris 프로젝트에서 보이다 시피, 콘솔 프로그램에서 제목이나 강조하고 싶은 문구를 출력하는 것이 목적입니다. 지원하는 문자는 일반 Ascii code chracter 들 뿐입니다.
 
-아스키 아트를 변경하고 싶다면, puthdln 함수 내에 있는 data 배열을 수정하면 됩니다. 단, 각 문자별 아스키 아트의 크기는 항상 7 x 8 (row x col) 이어야 합니다( col 에 NUL 문자를 고려할 필요는 없습니다.). data의 한 행의 크기는 sizeof(int64_t) * 128 이며, 각 문자의 데이터가 8 bytes 씩 연속적으로 배열되어 있습니다. 이는 각 행을 처리하는 동안  data caching 효율을 높여줍니다. 내부적으로 64-bit integer 를 사용하고 있기 때문에 64 bit 모드에서 사용하는 것을 추천합니다.
+아스키 아트를 변경하고 싶다면, puthdln 함수 내에 있는 data 배열을 수정하면 됩니다. 단, 각 문자별 아스키 아트의 크기는 항상 7 x 8 (row x col) 이어야 합니다( col 에 NUL 문자를 고려할 필요는 없습니다.). data의 한 행의 크기는 sizeof(int64_t) * 128 이며, 각 문자의 데이터가 8 bytes 씩 연속적으로 배열되어 있습니다. 이는 각 행을 처리하는 동안  data caching 효율을 높여줍니다. 64 bit 모드에서 사용하는 것을 추천합니다.
 
 아스키 코드의 일부 특수 문자('\n', '\t' 제외)의 경우, 공백만이 출력되는데 이는 자주 쓰는 아스키 코드 문자만을 출력하고자 만든 라이브러리이기 때문입니다. hdln 은 chracter string 을 headline 으로 바꿔서 출력하는 두 개의 함수 puthdln(put headline), printhdln(print headline) 를 제공합니다:
 
