@@ -5,17 +5,19 @@
   # include<stdarg.h> // va_list, va_start, va_end
   # include<stdint.h> // int64_t
   # include<string.h> // strlen, size_t
-  # include<assert.h> // assert
+  # include<assert.h> // static_assert
   # define HDLN
                   
 
   #ifdef __cplusplus
      # define ALIGN_AS(x) alignas(x)
      # define RESTRICT 
+     # define STATIC_ASSERT static_assert
 
   #else
     # define ALIGN_AS(x) _Alignas(x)
     # define RESTRICT restrict
+    # define STATIC_ASSERT _Static_assert
   
   #endif
 
