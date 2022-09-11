@@ -3,7 +3,7 @@
 # include"hdln.h"
 
 // check your platform.
-static_assert(IS_HDLN_SUPPORT_YOUR_PLATFORM, 
+STATIC_ASSERT(IS_HDLN_SUPPORT_YOUR_PLATFORM, 
               "\"hdln\" is not supported your platform");
 
 
